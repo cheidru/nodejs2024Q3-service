@@ -22,8 +22,8 @@ export class UsersService {
     return this.storage.findOne(id);
   }
 
-  update(updateUserDto: UpdateUserDto) {
-    return this.storage.update(updateUserDto);
+  update(id: string, updateUserDto: UpdateUserDto) {
+    return this.storage.update(id, updateUserDto);
   }
 
   delete(id: string) {

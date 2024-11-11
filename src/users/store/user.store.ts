@@ -38,12 +38,12 @@ class UserDB implements UserStore {
     return newUser;
   };
 
-  update = (UpdateUserDto: UpdateUserDto): UserEntity => {
+  update = (id: string, UpdateUserDto: UpdateUserDto): UserEntity => {
     this.users = this.users.map((user) => {
-      if (user.id === UpdateUserDto.id) return Object.assign(UpdateUserDto);
-      return this.users;
+      if (user.id === id) return Object.assign(user, UpdateUserDto);
+      // return this.users;
     });
-    return this.findOne(UpdateUserDto.id);
+    return this.findOne(id);
   };
 
   delete = (id: string): void => {

@@ -1,8 +1,17 @@
+import { IsAlphanumeric, IsInt, IsUUID, Length } from 'class-validator';
+
 export class CreateUserDto {
-  id: string;
+  // @IsUUID()
+  // id: string;
+  @Length(3)
+  @IsAlphanumeric()
   login: string;
+  @Length(3)
   password: string;
-  version: number; // integer number, increments on update
-  createdAt: number; // timestamp of creation
-  updatedAt: number; // timestamp of last update
+  // @IsInt()
+  // version: number; // integer number, increments on update
+  // @IsInt()
+  // createdAt: number; // timestamp of creation
+  // @IsInt()
+  // updatedAt: number; // timestamp of last update
 }
