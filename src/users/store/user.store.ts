@@ -41,7 +41,6 @@ class UserDB implements UserStore {
   update = (id: string, UpdateUserDto: UpdateUserDto): UserEntity => {
     this.users = this.users.map((user) => {
       if (user.id === id) return Object.assign(user, UpdateUserDto);
-      // return this.users;
     });
     return this.findOne(id);
   };

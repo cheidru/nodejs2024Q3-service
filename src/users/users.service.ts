@@ -1,12 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import UserDB from './store/user.store';
+import { UserStore } from './interfaces/user-storage.interface';
 // https://youtu.be/Rv9SinVHlPs?t=2203
 
 @Injectable()
 export class UsersService {
-  constructor(private storage: UserDB) {}
+  // constructor(private storage: UserDB) {}
+  constructor(@Inject('UserStore') private storage: UserStore) {}
 
   create(createUserDto: CreateUserDto) {
     // This action adds a new user

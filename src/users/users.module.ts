@@ -5,6 +5,13 @@ import UserDB from './store/user.store';
 
 @Module({
   controllers: [UsersController],
-  providers: [UserDB, UsersService],
+  providers: [
+    UsersService,
+    {
+      provide: 'UserStore',
+      useClass: UserDB,
+    },
+  ],
+  exports: [UsersService],
 })
 export class UsersModule {}
